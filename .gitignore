@@ -1,5 +1,7 @@
 # cmake
-# build/*
+build/*
+
+.imgs/*
 
 data_normal/
 data_normal/*
