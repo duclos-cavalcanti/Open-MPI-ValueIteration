@@ -1,0 +1,15 @@
+# Put this file in ~/.ssh/ with the name config
+
+Host hpc01 hpc02 hpc03 hpc04 hpc05 hpc06 hpc07 hpc08 hpc09 hpc10 hpc11 hpc12 hpc13 hpc14 hpc15
+  HostName %h.clients.eikon.tum.de
+
+# Matches the Eikon Computers, unfortunately, the wildcard prevents auto-completion
+
+Host linux*
+  HostName %h.clients.eikon.tum.de
+
+# Configuration for all hosts (matches always)
+Host *
+  User <USER>
+  ForwardX11 no
+  Compression yes

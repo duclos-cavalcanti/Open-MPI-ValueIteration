@@ -1,0 +1,30 @@
+# Available workers for mpi
+# Comments as in Python.
+#
+# Only a subset is uncommented by default to avoid that everyone is using 
+# all computers without knowing it
+# Same applies to the max slots
+#
+# The Eikon computers have the names linux??.clients.eikon.tum.de
+# where ?? is any number in [ 00, 01, 02, 03, ..., 89], the leading
+# zero is included. Add those hosts if needed, the syntax is the same
+
+# hpc01.clients.eikon.tum.de slots=2 max-slots=2
+hpc02.clients.eikon.tum.de slots=2 max-slots=2
+hpc03.clients.eikon.tum.de slots=2 max-slots=2
+hpc04.clients.eikon.tum.de slots=2 max-slots=2
+hpc05.clients.eikon.tum.de slots=2 max-slots=2
+
+#hpc06.clients.eikon.tum.de slots=2 max-slots=2
+
+#hpc07.clients.eikon.tum.de slots=2 max-slots=2
+#hpc08.clients.eikon.tum.de slots=2 max-slots=2
+#hpc09.clients.eikon.tum.de slots=2 max-slots=2
+
+#hpc10.clients.eikon.tum.de slots=2 max-slots=2
+#hpc11.clients.eikon.tum.de slots=2 max-slots=2
+#hpc12.clients.eikon.tum.de slots=2 max-slots=2
+
+#hpc13.clients.eikon.tum.de slots=2 max-slots=2
+#hpc14.clients.eikon.tum.de slots=2 max-slots=2
+#hpc15.clients.eikon.tum.de slots=2 max-slots=2

@@ -1,0 +1,56 @@
+# cmake
+# build/*
+
+data_normal/
+data_normal/*
+data/data_normal/
+data/data_normal/*
+
+docs/html/*
+docs/latex/*
+
+*.zip
+*.log
+
+server
+server/*
+
+# results folder
+results/debug/*
+results/small/*
+results/normal/*
+
+results/*.png
+
+# cache
+.cache/*
+
+# python
+**/__pycache__
+**/.pytest_cache
+
+# Binary data files
+*.npy
+*.npz
+*.pyc
+*.pickle
+*.mat
+
+# Latex build files
+_minted-*/
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.bbl
+*.blg
+*.tdo
+*.nav
+*.snm
+*.toc
+*.vrb
+*.sfp
+*.sfr
+
+.vscode/*
+.vscode/settings.json

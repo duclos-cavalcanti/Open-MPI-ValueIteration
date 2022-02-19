@@ -1,0 +1,125 @@
+@startuml
+' Settings
+' ============================
+
+' use +,#,- instead of icons
+'skinparam classAttributeIconSize 0
+
+' horizontal distance in px
+' skinparam nodesep 60
+
+' vertical distance in px
+' skinparam ranksep 50
+
+' use only straight lines (ortho/polyline)
+skinparam linetype ortho
+
+' title
+title OpenMPI Value Iteration Architecture
+
+
+skinparam nodesep 80
+skinparam ranksep 60
+
+
+' Abstract Classes
+' ============================
+abstract ValueIterator {
+    # max_iter_ : unsigned int
+    # alpha_ : float
+    # tolerance_ : float
+    # nr_states_ : unsigned int
+    # nr_stars : unsigned int
+    # nr_actions : unsigned int
+    # nr_runs : unsigned int
+    # freq_ : int
+    # comm_time_ : int
+    # total_times_ : std::vector<float>
+    # comm_times_ : std::vector<float>
+    # Js_ : Eigen::VectorXf
+    # Pis_ : Eigen::VectorXi
+    # P_ : Eigen::Map<SparseMatrix_t>
+
+    + <<create>> ValueIterator(struct Data data, int frequency) : void
+    + iterateValues(void) : void
+    + storeValues(std::string& dataset) : void
+    # implementation(void) : void {VIRTUAL}
+    # partialValueIteration(int begin, int end) : void {VIRTUAL}
+    # step(int begin, int end) : void
+    # getName(void) : std::string
+    # getTrajectory(void) : std::vector<float>
+    # appendTrajectory(void) : void
+    # getPolicy(void) : std::vector<int>
+    # appendPolicy(void) : void
+}
+
+class ScatterGathererValueIterator {
+    + <<create>> ScatterGathererValueIterator(struct Data data, int frequency)
+    # implementation(void) : void {OVERRIDE}
+    # partialValueIteration(int begin, int end) : void {OVERRIDE}
+    - offset_ : int
+    - m_offset_ : int
+    - rank_ : int
+    - nproc_ : int
+    - s_counts_ : std::vector<int>
+    - s_displacements : std::vector<int>
+    - s_partitions : std::vector<int>
+    - g_counts_ : std::vector<int>
+    - g_displacements : std::vector<int>
+}
+
+class SendRecvBcastValueIterator {
+    + <<create>> SendRecvBcastValueIterator(struct Data data, int frequency)
+    # implementation(void) : void {OVERRIDE}
+    # partialValueIteration(int begin, int end) : void {OVERRIDE}
+    - offset_ : int
+    - m_offset_ : int
+    - rank_ : int
+    - nproc_ : int
+    - partitions : std::vector<int>
+    - g_counts_ : std::vector<int>
+    - g_displacements : std::vector<int>
+}
+
+class SenderGathererValueIterator {
+    + <<create>> SenderGathererValueIterator(struct Data data, int frequency)
+    # implementation(void) : void {OVERRIDE}
+    # partialValueIteration(int begin, int end) : void {OVERRIDE}
+    - begin : int
+    - end : int
+    - world_rank : int
+    - world_size : int
+    - counts_recv : std::vector<int>
+    - displacements : std::vector<int>
+}
+
+class IsendIreceiveValueIterator {
+    + <<create>> IsendIreceiveValueIterator(struct Data data, int frequency)
+    # implementation(void) : void {OVERRIDE}
+    # partialValueIteration(int begin, int end) : void {OVERRIDE}
+    - offset_ : int
+    - m_offset_ : int
+    - rank_ : int
+    - nproc_ : int
+    - s_partitions : std::vector<int>
+    - g_counts_ : std::vector<int>
+    - g_displacements : std::vector<int>
+}
+
+class SequentialValueIterator {
+    + <<create>> SequentialValueIterator(struct Data data, int frequency)
+    # implementation(void) : void {OVERRIDE}
+    # partialValueIteration(int begin, int end) : void {OVERRIDE}
+}
+
+' Relations
+' ================================
+ValueIterator <|-down- ScatterGathererValueIterator
+ValueIterator <|-down- SendRecvBcastValueIterator
+ValueIterator <|-down- SenderGathererValueIterator
+ValueIterator <|-down- IsendIreceiveValueIterator
+ValueIterator <|-down- SequentialValueIterator
+
+@enduml
+
+
