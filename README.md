@@ -6,10 +6,10 @@ value iteration model using OpenMPI to distribute the workload across different 
 
 Many thanks to the lecturers that oversaw the work and provided such an amazing opportunity:
 
-|                             |                             |
+|      Lecturer               |         Email               |
 | --------------------------- | --------------------------- |
-| Gottwald, Martin (Dozent)   | martin.gottwald@tum.de      |
-| Hein, Alice (Dozentin)      | alice.hein@tum.de           |
+| Gottwald, Martin (PhD)      | martin.gottwald@tum.de      |
+| Hein, Alice (PhD)           | alice.hein@tum.de           |
 
 ## Dependencies
 ### Toolchain
