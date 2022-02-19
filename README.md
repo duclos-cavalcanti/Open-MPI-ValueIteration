@@ -1,7 +1,7 @@
 # Gruppe 5: Value Iteration with MPI
 
 ## Introduction
-This was a group project at the [Technical University of Munich](https://www.tum.de/en/). The goal was implement a asynchronous
+This was a group project at the [Technical University of Munich](https://www.tum.de/en/) within the High Performance Computing Lecture. The goal was implement an asynchronous
 value iteration model using OpenMPI to distribute the workload across different machines. 
 
 Many thanks to the lecturers that oversaw the work and provided such an amazing opportunity:
