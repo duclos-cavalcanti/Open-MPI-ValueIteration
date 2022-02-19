@@ -1,11 +1,16 @@
 # Gruppe 5: Value Iteration with MPI
 
-## TODOs
-
-[] Pie Chart
-[] Better plots
-
 ## Introduction
+This was the product of a group project at the Technical University of Munich. The goal was implement a asynchronous
+value iteration model using OpenMPI to distribute the workload across different machines. 
+
+Many thanks to the lecturers that oversaw the work and provided such an amazing opportunity:
+
+|                             |                             |
+| --------------------------- | --------------------------- |
+| Gottwald, Martin (Dozent)   | martin.gottwald@tum.de      |
+| Hein, Alice (Dozentin)      | alice.hein@tum.de           |
+
 ## Dependencies
 ### Toolchain
 1. `CMake`
